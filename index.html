@@ -7,6 +7,60 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        // quadratic
+        let a = +prompt("Введите A:"),
+          b = +prompt("Введите B:"),
+          c = +prompt("Введите C:"),
+          arr = kvur(a, b, c),
+          d = arr[0];
+        alert("Дискриминант: " + d);
+        alert(
+          d < 0
+            ? "Корней нет"
+            : d === 0
+            ? "Один корень: " + arr[1]
+            : `Два корня: ${arr[1]} и ${arr[2]}`
+        );
+
+        function kvur(a, b, c) {
+          let discr = (a, b, c) => b * b - 4 * a * c;
+          let d = discr(a, b, c);
+          if (d < 0) return [d];
+        
+          let x1 = (-b + Math.sqrt(d)) / (2 * a),
+            x2 = (-b - Math.sqrt(d)) / (2 * a);
+        
+          return [d, x1, x2];
+        }
+
+        // factorial
+        function factorial(n) {
+          if (n == 1) return 1;
+          else return n * factorial(n - 1);
+        }
+        var userNum = +prompt("Введите число для вычисления факториала");
+        alert(factorial(userNum));
+
+        // fibonacci 
+        function fib(n){
+        if (n==1||n==2) return 1;
+        else return fib(n-2)+fib(n-1);		
+        }
+        var userNum=+prompt('Введите порядковый номер числа Фибоначчи');
+        alert(fib(userNum));
+
+        // pyramid
+        function writeTriangle(rows) {
+          const indexes = new Array(rows).fill(0).map((_, i) => i);
+          for (let i of indexes) {
+            const spaces = "-".repeat(rows - 1 - i);
+            console.log(spaces + "#".repeat(1 + i * 2) + spaces);
+          }
+        }
+        
+        const n = +prompt("Введите число строк: ");
+        writeTriangle(alert(n));
+    </script>
 </body>
 </html>
